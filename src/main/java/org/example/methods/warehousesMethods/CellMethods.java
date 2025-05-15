@@ -2,6 +2,7 @@ package org.example.methods.warehousesMethods;
 
 import org.example.methods.otherMethods.HibernateMethods;
 import org.example.model.warehouses.Cell;
+import org.example.model.warehouses.Product;
 
 import java.util.ArrayList;
 import java.util.List;

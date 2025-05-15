@@ -7,13 +7,19 @@ import org.example.model.warehouses.Stock;
 import java.util.Scanner;
 
 public class WatchInfo {
-    public static void watchInfo() {
-        StockMethods.printAllStocks();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите id склада: ");
-        int warehouseId = scanner.nextInt();
+    public static void watchInfo(int warehouseId) {
         Stock stock = StockMethods.getStockByWarehouseId(warehouseId);
-        WarehouseMethods.printCellsContent(stock.getStockId());
+        WarehouseMethods.printStaff(warehouseId);
+        WarehouseMethods.printCellsContent(warehouseId);
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Чтобы вернуться назад - нажмите 1");
+        int choice = scanner.nextInt();
+        switch (choice) {
+            case 1:
+                StockManagement.stockManagementMenu(warehouseId);
+                break;
+        }
 
     }
 }

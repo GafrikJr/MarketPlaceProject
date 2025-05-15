@@ -1,6 +1,8 @@
 package org.example.model.warehouses;
 
 import jakarta.persistence.*;
+import org.example.methods.warehousesMethods.CellMethods;
+import org.example.methods.warehousesMethods.ProductMethods;
 
 @Entity
 @Table(name = "Cell")
@@ -72,6 +74,7 @@ public class Cell {
     }
 
     public void printContent() {
-        // тут надо в productMethods написать метод для получения названия содержимого по productId
+        Product content = ProductMethods.getProductById(productId);
+        System.out.println("В ячейке лежит " + content.getName() + " в количестве " + productCount + " штук.");
     }
 }

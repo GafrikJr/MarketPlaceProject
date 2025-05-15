@@ -1,6 +1,7 @@
 package org.example.methods.warehousesMethods;
 
 import org.example.methods.otherMethods.HibernateMethods;
+import org.example.model.users.Employee;
 import org.example.model.warehouses.Cell;
 import org.example.model.warehouses.Warehouse;
 import java.util.List;
@@ -31,6 +32,11 @@ public class WarehouseMethods {
     }
 
     public static void printStaff(int warehouseId) {
-        // нао доделать
+        String request = "FROM Employee where placeOfWorkId = " + warehouseId;
+        List<Employee> staff = HibernateMethods.getObjectsByRequest(Employee.class, request);
+        System.out.println("Рабочий персонал:");
+        for (Employee employee : staff) {
+            System.out.println(employee.toString());
+        }
     }
 }

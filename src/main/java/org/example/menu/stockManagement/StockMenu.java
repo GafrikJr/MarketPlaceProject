@@ -1,6 +1,7 @@
 package org.example.menu.stockManagement;
 
 import org.example.menu.Menu;
+import org.example.menu.stockManagement.theStockManaging.ChooseStock;
 import org.example.menu.stockManagement.theStockManaging.StockManagement;
 
 import java.util.Scanner;
@@ -22,7 +23,7 @@ public class StockMenu {
                 CloseStock.closeStock();
                 break;
             case 3:
-                StockManagement.stockManagementMenu();
+                ChooseStock.chooseStock();
                 break;
             case 4:
                 Menu.mainMenu();

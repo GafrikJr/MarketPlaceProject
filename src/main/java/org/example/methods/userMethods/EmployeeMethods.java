@@ -21,7 +21,7 @@ public class EmployeeMethods {
     }
 
     public static void fireEmployeeById(int id) {
-        HibernateMethods.updateEntity(id, Employee.class, employee -> employee.setWorking(false));
+        HibernateMethods.updateEntity(id, Employee.class, _employee -> fireEmployee(_employee));
     }
 
     public static void fireStaff(int warehouseId) {

@@ -73,4 +73,11 @@ public class Employee {
     public void setPost(String post) {
         this.post = post;
     }
+
+    @Override
+    public String toString() {
+        return "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", post='" + post + '\'';
+    }
 }
