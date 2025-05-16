@@ -3,6 +3,7 @@ package org.example.methods.warehousesMethods;
 import org.example.methods.otherMethods.HibernateMethods;
 import org.example.model.users.Employee;
 import org.example.model.warehouses.Cell;
+import org.example.model.warehouses.Stock;
 import org.example.model.warehouses.Warehouse;
 import org.w3c.dom.ls.LSOutput;
 

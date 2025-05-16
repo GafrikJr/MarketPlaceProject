@@ -1,6 +1,8 @@
 package org.example.menu.sellpointManagement;
 
 import org.example.menu.Menu;
+import org.example.menu.sellpointManagement.sellpointManaging.ChooseSellPoint;
+import org.example.menu.sellpointManagement.sellpointManaging.SellPointManagement;
 import org.example.menu.stockManagement.CloseStock;
 import org.example.menu.stockManagement.OpenNewStock;
 import org.example.menu.stockManagement.theStockManaging.ChooseStock;
@@ -26,7 +28,7 @@ public class SellPointMenu {
                 CloseSellPoint.closeSellPoint();
                 break;
             case 3:
-
+                ChooseSellPoint.chooseSellPoint();
                 break;
             case 4:
                 Menu.mainMenu();

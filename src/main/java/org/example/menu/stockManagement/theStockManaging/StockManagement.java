@@ -1,7 +1,10 @@
 package org.example.menu.stockManagement.theStockManaging;
 
 import org.example.menu.Menu;
+import org.example.menu.generalManagementMethods.ChangeManager;
+import org.example.menu.generalManagementMethods.FireEmployee;
 import org.example.menu.generalManagementMethods.HireEmployee;
+import org.example.menu.generalManagementMethods.WatchInfo;
 import org.example.methods.otherMethods.ClearConsole;
 
 import java.util.Scanner;
@@ -25,12 +28,13 @@ public class StockManagement {
                 break;
             case 2:
                 FireEmployee.fireEmployee(warehouseId);
+                FireEmployee.stockContinue(warehouseId);
                 break;
             case 3:
-                ChangeManager.changeManager(warehouseId);
+                ChangeManager.changeStockManager(warehouseId);
                 break;
             case 4:
-                WatchInfo.watchInfo(warehouseId);
+                WatchInfo.watchStockInfo(warehouseId);
                 break;
             case 5:
                 BuyProduct.buyProduct(warehouseId);

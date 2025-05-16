@@ -40,8 +40,40 @@ public class SellPoint {
         return warehouseId;
     }
 
+    public void setId(int warehouseId) {
+        this.warehouseId = warehouseId;
+    }
+
+    public int getManagerId() {
+        return managerId;
+    }
+
     public void setManagerId(int managerId) {
         this.managerId = managerId;
+    }
+
+    public int getSalaryBudget() {
+        return salaryBudget;
+    }
+
+    public void setSalaryBudget(int salaryBudget) {
+        this.salaryBudget = salaryBudget;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public int getProfit() {
+        return profit;
+    }
+
+    public void setProfit(int profit) {
+        this.profit = profit;
     }
 
     @Override
