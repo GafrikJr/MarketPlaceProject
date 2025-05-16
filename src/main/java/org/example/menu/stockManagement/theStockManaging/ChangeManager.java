@@ -13,11 +13,17 @@ public class ChangeManager {
     public static void changeManager(int warehouseId) {
         Warehouse warehouse = WarehouseMethods.getWarehouseById(warehouseId);
         Employee newManager = new Employee(warehouseId, "manager");
-        EmployeeMethods.hireEmployee(newManager);
-        HibernateMethods.updateEntity(warehouseId, Warehouse.class, _warehouse -> _warehouse.setManagerId(newManager.getId()));
-        HibernateMethods.updateEntity(warehouseId, Stock.class, _stock -> _stock.setManagerId(newManager.getId()));
+        EmployeeMethods.hireEmployee(newManager); // создали запись в БД с новым менеджером
+        HibernateMethods.updateEntity(warehouseId,// поставили warehouse нового менеджера
+                Warehouse.class,
+                _warehouse -> _warehouse.setManagerId(newManager.getId())
+        );
+        HibernateMethods.updateEntity(warehouseId,// поставили складу нового менеджера
+                Stock.class,
+                _stock -> _stock.setManagerId(newManager.getId())
+        );
         int managerId = warehouse.getManagerId();
-        EmployeeMethods.fireEmployeeById(managerId);
+        EmployeeMethods.fireEmployeeById(managerId); // уволили старого менеджера
         System.out.println("Теперь ваш новый менеджер: " + newManager.getFullName());
 
         Scanner scanner = new Scanner(System.in);
