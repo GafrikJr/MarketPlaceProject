@@ -21,6 +21,7 @@ public class StockManagement {
         switch (choice) {
             case 1:
                 HireEmployee.hireEmployee(warehouseId, "loader");
+                HireEmployee.stockContinue(warehouseId);
                 break;
             case 2:
                 FireEmployee.fireEmployee(warehouseId);
