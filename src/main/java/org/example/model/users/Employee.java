@@ -76,8 +76,8 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "id=" + id +
-                ", fullName='" + fullName + '\'' +
-                ", post='" + post + '\'';
+        return "id: " + id +
+                " | ФИО: " + fullName  +
+                " | должность: '" + post;
     }
 }

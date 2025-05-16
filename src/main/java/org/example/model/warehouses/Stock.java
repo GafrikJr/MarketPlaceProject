@@ -42,9 +42,9 @@ public class Stock {
 
     @Override
     public String toString() {
-        return  "id = " + warehouseId +
-                ", менеджер: " + EmployeeMethods.getEmployeeById(managerId).getFullName() +
-                ", зарплатный бюджет = " + salaryBudget +
-                ", вместимость склада = " + capacity;
+        return  "id: " + warehouseId +
+                " | менеджер: " + EmployeeMethods.getEmployeeById(managerId).getFullName() +
+                " | зарплатный бюджет: " + salaryBudget +
+                " | вместимость склада: " + capacity;
     }
 }

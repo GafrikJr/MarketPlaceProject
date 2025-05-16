@@ -1,17 +1,20 @@
 package org.example.menu.stockManagement.theStockManaging;
 
 import org.example.menu.Menu;
+import org.example.methods.otherMethods.ClearConsole;
 
 import java.util.Scanner;
 
 public class StockManagement {
     public static void stockManagementMenu(int warehouseId) {
+        ClearConsole.clearConsole();
         System.out.println("Выберите:" +
                 "\n1) Нанять сотрудника" +
                 "\n2) Уволить сотрудника" +
-                "\n3) Посмотреть информацию о складе" +
-                "\n4) Закупить товар" +
-                "\n5) Вернуться назад");
+                "\n3) Поменять менеджера" +
+                "\n4) Посмотреть информацию о складе" +
+                "\n5) Закупить товар" +
+                "\n6) Вернуться назад");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
         switch (choice) {
@@ -22,12 +25,15 @@ public class StockManagement {
                 FireEmployee.fireEmployee(warehouseId);
                 break;
             case 3:
-                WatchInfo.watchInfo(warehouseId);
+                ChangeManager.changeManager(warehouseId);
                 break;
             case 4:
-
+                WatchInfo.watchInfo(warehouseId);
                 break;
             case 5:
+                BuyProduct.buyProduct(warehouseId);
+                break;
+            case 6:
                 Menu.mainMenu();
                 break;
         }

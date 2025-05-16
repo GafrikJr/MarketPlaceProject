@@ -4,7 +4,6 @@ import org.example.methods.otherMethods.HibernateMethods;
 import org.example.model.warehouses.Cell;
 import org.example.model.warehouses.Product;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CellMethods {
@@ -26,20 +25,28 @@ public class CellMethods {
         }
     }
 
-    public static List<Cell> getWarehouseCells(int warehouseId) {
-        List<Cell> cells = HibernateMethods.getObjectsByRequest(Cell.class, "FROM Cell");
-        List<Cell> warehouseCells = new ArrayList<>();
-        for (Cell cell : cells) {
-            if (cell.getWarehouseId() == warehouseId) {
-                warehouseCells.add(cell);
-            }
-        }
-        return warehouseCells;
+    public static void putProduct(int cellId, int productId, int productCount) {
+        Cell cell = getCellById(cellId);
+        HibernateMethods.updateEntity(cellId,
+                Cell.class,
+                _cell -> putContent(_cell, productId, productCount)
+        );
+    }
+
+    public static Cell getCellById(int cellId) {
+        return HibernateMethods.getObjectById(cellId, Cell.class);
     }
 
     private static List<Cell> getClosedCells(int warehouse_id) {
         String request = "FROM Cell where warehouseId = " + warehouse_id;
         List<Cell> closedCells = HibernateMethods.getObjectsByRequest(Cell.class, request);
         return closedCells;
+    }
+
+    private static void putContent(Cell cell, int productId, int productCount) {
+        Product product = ProductMethods.getProductById(productId);
+        cell.setProductId(productId);
+        cell.setProductCount(productCount);
+        cell.setProfit(productCount * (product.getSellCost() - product.getBuyCost()));
     }
 }

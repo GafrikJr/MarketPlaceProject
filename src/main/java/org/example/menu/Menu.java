@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class Menu {
     public static void mainMenu() {
         ClearConsole.clearConsole();
+        ClearConsole.clearConsole();
         System.out.println("Выберите опцию: " +
                 "\n1) Управление складами" +
                 "\n2) Управление ПВЗ" +

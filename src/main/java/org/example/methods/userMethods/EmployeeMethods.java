@@ -1,7 +1,11 @@
 package org.example.methods.userMethods;
 
 import org.example.methods.otherMethods.HibernateMethods;
+import org.example.methods.warehousesMethods.WarehouseMethods;
 import org.example.model.users.Employee;
+import org.example.model.warehouses.SellPoint;
+import org.example.model.warehouses.Stock;
+import org.example.model.warehouses.Warehouse;
 
 import java.util.List;
 
@@ -21,6 +25,7 @@ public class EmployeeMethods {
     }
 
     public static void fireEmployeeById(int id) {
+        Employee employee = getEmployeeById(id);
         HibernateMethods.updateEntity(id, Employee.class, _employee -> fireEmployee(_employee));
     }
 

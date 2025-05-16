@@ -1,5 +1,6 @@
 package org.example.menu.stockManagement;
 
+import org.example.methods.otherMethods.ClearConsole;
 import org.example.methods.warehousesMethods.StockMethods;
 import org.example.model.warehouses.Stock;
 
@@ -8,6 +9,7 @@ import java.util.Scanner;
 
 public class CloseStock {
     public static void closeStock() {
+        ClearConsole.clearConsole();
         Scanner scanner = new Scanner(System.in);
         boolean isEmpty = StockMethods.printAllStocks();
         if (!isEmpty) {

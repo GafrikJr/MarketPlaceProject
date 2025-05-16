@@ -3,11 +3,13 @@ package org.example.menu.stockManagement;
 import org.example.menu.Menu;
 import org.example.menu.stockManagement.theStockManaging.ChooseStock;
 import org.example.menu.stockManagement.theStockManaging.StockManagement;
+import org.example.methods.otherMethods.ClearConsole;
 
 import java.util.Scanner;
 
 public class StockMenu {
     public static void menu() {
+        ClearConsole.clearConsole();
         System.out.println("Выберите:" +
                 "\n1) Открыть новый склад" +
                 "\n2) Закрыть склад" +

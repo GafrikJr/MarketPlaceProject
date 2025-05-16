@@ -1,7 +1,6 @@
 package org.example.model.warehouses;
 
 import jakarta.persistence.*;
-import org.example.methods.warehousesMethods.CellMethods;
 import org.example.methods.warehousesMethods.ProductMethods;
 
 @Entity
@@ -21,8 +20,8 @@ public class Cell {
     @Column(name = "product_count")
     private int productCount;
 
-    @Column(name = "cost")
-    private int cost;
+    @Column(name = "profit")
+    private int profit;
 
     public Cell() {};
 
@@ -30,7 +29,7 @@ public class Cell {
         this.warehouseId = warehouseId;
         this.productId = 0;
         this.productCount = 0;
-        this.cost = 0;
+        this.profit = 0;
     }
 
     public int getId() {
@@ -65,18 +64,21 @@ public class Cell {
         this.productCount = productCount;
     }
 
-    public int getCost() {
-        return cost;
+    public int getProfit() {
+        return profit;
     }
 
-    public void setCost(int cost) {
-        this.cost = cost;
+    public void setProfit(int profit) {
+        this.profit = profit;
     }
 
     public void printContent() {
-        Product content = null;
+        Product content = ProductMethods.getProductById(productId);
         if (content != null) {
-            System.out.println("В ячейке лежит " + content.getName() + " в количестве " + productCount + " штук.");
+            System.out.println("В ячейке с id = " + id + " лежит '" + content.getName() + "' в количестве " + productCount + " штук. Выгода с продажи содержимого составляет " + profit + " руб.");
+        }
+        else {
+            System.out.println("В ячейке с id = " + id + " пусто.");
         }
     }
 }

@@ -4,6 +4,9 @@ import org.example.methods.otherMethods.HibernateMethods;
 import org.example.model.users.Employee;
 import org.example.model.warehouses.Cell;
 import org.example.model.warehouses.Warehouse;
+import org.w3c.dom.ls.LSOutput;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class WarehouseMethods {
@@ -25,10 +28,22 @@ public class WarehouseMethods {
     }
 
     public static void printCellsContent(int warehouseId) {
-        List<Cell> cells = CellMethods.getWarehouseCells(warehouseId);
+        System.out.println("\nСодержимое ячеек склада");
+        List<Cell> cells = getWarehouseCells(warehouseId);
         for (Cell cell : cells) {
             cell.printContent(); // надо написать этот метод
         }
+    }
+
+    public static List<Cell> getWarehouseCells(int warehouseId) {
+        List<Cell> cells = HibernateMethods.getObjectsByRequest(Cell.class, "FROM Cell");
+        List<Cell> warehouseCells = new ArrayList<>();
+        for (Cell cell : cells) {
+            if (cell.getWarehouseId() == warehouseId) {
+                warehouseCells.add(cell);
+            }
+        }
+        return warehouseCells;
     }
 
     public static void printStaff(int warehouseId) {

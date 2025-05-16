@@ -6,7 +6,8 @@ public class Product {
     private int buyCost;
     private int sellCost;
 
-    public Product(String name, int buyCost, int sellCost) {
+    public Product(int id, String name, int buyCost, int sellCost) {
+        this.id = id;
         this.name = name;
         this.buyCost = buyCost;
         this.sellCost = sellCost;
@@ -42,5 +43,13 @@ public class Product {
 
     public void setSellCost(int sellCost) {
         this.sellCost = sellCost;
+    }
+
+    public void printInfo() {
+        System.out.println("id: " + id
+                + " | название: " + name
+                + " | закупочная цена: " + buyCost
+                + " | цена для продажи: " + sellCost
+        );
     }
 }
