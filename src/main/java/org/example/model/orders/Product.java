@@ -1,4 +1,4 @@
-package org.example.model.warehouses;
+package org.example.model.orders;
 
 public class Product {
     private int id;

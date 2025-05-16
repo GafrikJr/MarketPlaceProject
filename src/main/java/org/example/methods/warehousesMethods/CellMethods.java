@@ -1,8 +1,9 @@
 package org.example.methods.warehousesMethods;
 
+import org.example.methods.ordersMethods.ProductMethods;
 import org.example.methods.otherMethods.HibernateMethods;
 import org.example.model.warehouses.Cell;
-import org.example.model.warehouses.Product;
+import org.example.model.orders.Product;
 
 import java.util.List;
 

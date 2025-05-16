@@ -1,7 +1,8 @@
 package org.example.model.warehouses;
 
 import jakarta.persistence.*;
-import org.example.methods.warehousesMethods.ProductMethods;
+import org.example.methods.ordersMethods.ProductMethods;
+import org.example.model.orders.Product;
 
 @Entity
 @Table(name = "Cell")

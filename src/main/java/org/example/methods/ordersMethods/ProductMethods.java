@@ -1,8 +1,6 @@
-package org.example.methods.warehousesMethods;
+package org.example.methods.ordersMethods;
 
-import org.example.methods.otherMethods.HibernateMethods;
-import org.example.model.warehouses.Cell;
-import org.example.model.warehouses.Product;
+import org.example.model.orders.Product;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,7 +14,8 @@ public class ProductMethods {
     public static Product getProductById(int _id) {
         Product product = null;
         String[] columns = new String[4];
-        try (Scanner scanner = new Scanner(PRODUCT_TXT);) {
+        try {
+            Scanner scanner = new Scanner(PRODUCT_TXT);
             scanner.nextLine();
             while (scanner.hasNextLine()) {
                 columns = scanner.nextLine().split("  ");

@@ -39,7 +39,7 @@ public class SellPointManagement {
                 WatchInfo.watchSellPointInfo(warehouseId);
                 break;
             case 5:
-
+                PrintSalesHistory.printSalesHistory(warehouseId);
                 break;
             case 6:
                 Menu.mainMenu();

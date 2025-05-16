@@ -1,13 +1,10 @@
 package org.example.menu.stockManagement.theStockManaging;
 
 import org.example.methods.otherMethods.ClearConsole;
-import org.example.methods.otherMethods.HibernateMethods;
 import org.example.methods.warehousesMethods.CellMethods;
-import org.example.methods.warehousesMethods.ProductMethods;
-import org.example.methods.warehousesMethods.StockMethods;
+import org.example.methods.ordersMethods.ProductMethods;
 import org.example.methods.warehousesMethods.WarehouseMethods;
 import org.example.model.warehouses.Cell;
-import org.example.model.warehouses.Product;
 
 import java.util.List;
 import java.util.Scanner;
