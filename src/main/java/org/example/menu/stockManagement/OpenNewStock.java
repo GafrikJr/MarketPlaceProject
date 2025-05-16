@@ -1,5 +1,6 @@
 package org.example.menu.stockManagement;
 
+import org.example.menu.stockManagement.theStockManaging.StockManagement;
 import org.example.methods.warehousesMethods.StockMethods;
 import org.example.model.warehouses.Warehouse;
 
@@ -14,5 +15,17 @@ public class OpenNewStock {
         int capacity = scanner.nextInt();
         Warehouse warehouse = new Warehouse(salaryBudget, capacity);
         StockMethods.openStock(warehouse);
+
+        System.out.println("Если хотите открыть еще склад - нажмите 1" +
+                "\nЕсли хотите вернуться назад - нажмите 2");
+        int choice = scanner.nextInt();
+        switch (choice) {
+            case 1:
+                openNewStock();
+                break;
+            case 2:
+                StockMenu.menu();
+                break;
+        }
     }
 }

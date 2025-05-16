@@ -19,11 +19,17 @@ public class StockMethods {
         return HibernateMethods.getObjectsByRequest(Stock.class, request);
     }
 
-    public static void printAllStocks() {
+    public static boolean printAllStocks() {
+        boolean isEmpty = false;
         List<Stock> allStocks = StockMethods.getAllStocks();
         for (Stock stock : allStocks) {
             System.out.println(stock.toString());
         }
+        if (allStocks.size() == 0) {
+            System.out.println("Не существует открытых складов");
+            isEmpty = true;
+        }
+        return isEmpty;
     }
 
     public static void openStock(Warehouse warehouse) {

@@ -9,15 +9,22 @@ import java.util.Scanner;
 public class CloseStock {
     public static void closeStock() {
         Scanner scanner = new Scanner(System.in);
-        StockMethods.printAllStocks();
-        System.out.println("Напишите id склада, который хотите закрыть:");
-        int warehouseId = scanner.nextInt();
-        StockMethods.closeStockById(warehouseId);
-        try {
-            Thread.sleep(2000);
+        boolean isEmpty = StockMethods.printAllStocks();
+        if (!isEmpty) {
+            System.out.println("Напишите id склада, который хотите закрыть:");
+            int warehouseId = scanner.nextInt();
+            StockMethods.closeStockById(warehouseId);
         }
-        catch (InterruptedException e) {
-            e.printStackTrace();
+        System.out.println("Если хотите закрыть еще склад - нажмите 1" +
+                "\nЕсли хотите вернуться назад - нажмите 2");
+        int choice = scanner.nextInt();
+        switch (choice) {
+            case 1:
+                closeStock();
+                break;
+            case 2:
+                StockMenu.menu();
+                break;
         }
     }
 }

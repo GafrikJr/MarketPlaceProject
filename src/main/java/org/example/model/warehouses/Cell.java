@@ -74,7 +74,9 @@ public class Cell {
     }
 
     public void printContent() {
-        Product content = ProductMethods.getProductById(productId);
-        System.out.println("В ячейке лежит " + content.getName() + " в количестве " + productCount + " штук.");
+        Product content = null;
+        if (content != null) {
+            System.out.println("В ячейке лежит " + content.getName() + " в количестве " + productCount + " штук.");
+        }
     }
 }
