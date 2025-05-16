@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import org.example.methods.userMethods.EmployeeMethods;
 
 @Entity
 @Table(name = "sell_point")
@@ -41,5 +42,13 @@ public class SellPoint {
 
     public void setManagerId(int managerId) {
         this.managerId = managerId;
+    }
+
+    @Override
+    public String toString() {
+        return  "id: " + warehouseId +
+                " | менеджер: " + EmployeeMethods.getEmployeeById(managerId).getFullName() +
+                " | зарплатный бюджет: " + salaryBudget +
+                " | вместимость склада: " + capacity;
     }
 }

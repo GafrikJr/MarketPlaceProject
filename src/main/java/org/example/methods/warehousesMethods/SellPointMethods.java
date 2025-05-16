@@ -6,6 +6,7 @@ import org.example.methods.userMethods.EmployeeMethods;
 import org.example.model.users.Employee;
 import org.example.model.warehouses.Cell;
 import org.example.model.warehouses.SellPoint;
+import org.example.model.warehouses.Stock;
 import org.example.model.warehouses.Warehouse;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,18 +18,41 @@ public class SellPointMethods {
     }
 
     public static void closeSellPointById(int warehouse_id) {
+        EmployeeMethods.fireStaff(warehouse_id);
+        CellMethods.closeCells(warehouse_id);
         HibernateMethods.deleteObjectById(warehouse_id, SellPoint.class);
         WarehouseMethods.deleteWarehouseById(warehouse_id, Warehouse.class);
     }
 
+    public static List<SellPoint> getAllSellPoints() {
+        String request = "FROM SellPoint";
+        return HibernateMethods.getObjectsByRequest(SellPoint.class, request);
+    }
+
+    public static boolean printAllSellPoints() {
+        boolean isEmpty = false;
+        List<SellPoint> allSellPoints = SellPointMethods.getAllSellPoints();
+        for (SellPoint sellPoint : allSellPoints) {
+            System.out.println(sellPoint.toString());
+        }
+        if (allSellPoints.size() == 0) {
+            System.out.println("Не существует открытых ПВЗ");
+            isEmpty = true;
+        }
+        return isEmpty;
+    }
+
     public static void openSellPoint(Warehouse warehouse) {
+        /*
+        По умолчанию нанимается 1 менеджер + 2 продавца
+         */
         WarehouseMethods.openWarehouse(warehouse); // создали запись хранилища в БД
         SellPoint sellPoint = new SellPoint(
                 warehouse.getId(),
                 warehouse.getSalaryBudget(),
                 warehouse.getCapacity()
         );
-        HibernateMethods.createEntry(sellPoint, SellPoint.class);
+        HibernateMethods.createEntry(sellPoint, SellPoint.class); // создали запись ПВЗ в БД
         int managerId = EmployeeMethods.hireStaff(warehouse.getId(), 3, "seller");
         CellMethods.createCells(warehouse.getId(), warehouse.getCapacity());
 
@@ -45,17 +69,6 @@ public class SellPointMethods {
         );
 
 
-    }
-
-    private static List<Employee> hireStaff(int warehouse_id) {
-        List<Employee> staff = new ArrayList<>();
-        String managerFullName = RandomHuman.randomHuman();
-        String sellerFullName = RandomHuman.randomHuman();
-        Employee manager = new Employee(warehouse_id, "manager");
-        Employee seller = new Employee(warehouse_id, "seller");
-        staff.add(manager);
-        staff.add(seller);
-        return staff;
     }
 
     private static List<Cell> openCells(int warehouse_id, int capacity) {
