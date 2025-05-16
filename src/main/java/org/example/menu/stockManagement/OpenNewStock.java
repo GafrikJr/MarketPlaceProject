@@ -16,7 +16,7 @@ public class OpenNewStock {
         System.out.println("Введите вместимость склада: ");
         int capacity = scanner.nextInt();
         Warehouse warehouse = new Warehouse(salaryBudget, capacity);
-        StockMethods.openStock(warehouse);
+        StockMethods.openStock(warehouse); // создали запись сток и warehouse
 
         System.out.println("Если хотите открыть еще склад - нажмите 1" +
                 "\nЕсли хотите вернуться назад - нажмите 2");

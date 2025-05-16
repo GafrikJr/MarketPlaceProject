@@ -63,6 +63,12 @@ public class StockMethods {
     }
 
     public static void closeStockById(int warehouse_id) {
+        /*
+        /Чтобы закрыть склад, нам нужно
+        1) уволить персонал
+        2) закрыть все ячейки
+        3) удалить записи warehouse и stock
+        */
         EmployeeMethods.fireStaff(warehouse_id);
         CellMethods.closeCells(warehouse_id);
         HibernateMethods.deleteObjectById(warehouse_id, Stock.class);
