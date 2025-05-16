@@ -3,6 +3,7 @@ package org.example.menu.stockManagement.theStockManaging;
 import org.example.methods.otherMethods.ClearConsole;
 import org.example.methods.userMethods.EmployeeMethods;
 import org.example.methods.warehousesMethods.WarehouseMethods;
+import org.example.model.warehouses.Warehouse;
 
 import java.util.Scanner;
 
@@ -11,8 +12,12 @@ public class FireEmployee {
         ClearConsole.clearConsole();
         Scanner scanner = new Scanner(System.in);
         WarehouseMethods.printStaff(warehouseId);
-        System.out.println("\nВведите id рабочего, которого хотите уволить:");
+        System.out.println("\nВведите id рабочего, которого хотите уволить(менеджера нельзя уволить):");
         int employeeId = scanner.nextInt();
+        while (employeeId == WarehouseMethods.getWarehouseById(warehouseId).getManagerId()) {
+            System.out.println("Менеджера нельзя уволить!");
+            employeeId = scanner.nextInt();
+        }
         EmployeeMethods.fireEmployeeById(employeeId);
 
         ClearConsole.clearConsole();
