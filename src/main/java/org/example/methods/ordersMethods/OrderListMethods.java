@@ -5,6 +5,8 @@ import org.example.model.orders.OrderList;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class OrderListMethods {
@@ -27,5 +29,35 @@ public class OrderListMethods {
             e.printStackTrace();
         }
         return orderList;
+    }
+
+    public static void makeEntry(OrderList orderList) {
+        try {
+            FileWriter fileWriter = new FileWriter(ORDER_LIST_TXT, true);
+            String entry =
+                    "\n" + orderList.getId() + "  "
+                    + orderList.getBuyerId() + "  "
+                    + orderList.getTotalCost();
+            fileWriter.write(entry);
+            fileWriter.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static int getLastId() {
+        int size = 0;
+        try {
+            Scanner scanner = new Scanner(ORDER_LIST_TXT);
+            while (scanner.hasNext()) {
+                size++;
+                scanner.nextLine();
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return size;
     }
 }

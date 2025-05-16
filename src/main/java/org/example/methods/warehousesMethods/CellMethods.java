@@ -5,7 +5,9 @@ import org.example.methods.otherMethods.HibernateMethods;
 import org.example.model.warehouses.Cell;
 import org.example.model.orders.Product;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class CellMethods {
     public static void createCell(Cell cell) {
@@ -32,6 +34,17 @@ public class CellMethods {
                 Cell.class,
                 _cell -> putContent(_cell, productId, productCount)
         );
+    }
+
+    public static Cell getRandomVoidCell(int warehouseId) {
+        Random random = new Random();
+        Cell voidCell = null;
+        List<Cell> cells = WarehouseMethods.getWarehouseCells(warehouseId);
+        int randomIndex = random.nextInt(cells.size());
+        while (cells.get(randomIndex).getProductId() != 0) {
+            randomIndex = random.nextInt(cells.size());
+        }
+        return cells.get(randomIndex);
     }
 
     public static Cell getCellById(int cellId) {
