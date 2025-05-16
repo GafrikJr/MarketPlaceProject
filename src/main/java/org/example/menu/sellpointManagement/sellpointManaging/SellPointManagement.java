@@ -1,26 +1,25 @@
-package org.example.menu.stockManagement.theStockManaging;
+package org.example.menu.sellpointManagement.sellpointManaging;
 
 import org.example.menu.Menu;
-import org.example.menu.generalManagementMethods.HireEmployee;
+import org.example.menu.stockManagement.theStockManaging.*;
 import org.example.methods.otherMethods.ClearConsole;
 
 import java.util.Scanner;
 
-public class StockManagement {
-    public static void stockManagementMenu(int warehouseId) {
+public class SellPointManagement {
+    public static void sellPointManagementMenu(int warehouseId) {
         ClearConsole.clearConsole();
         System.out.println("Выберите:" +
                 "\n1) Нанять сотрудника" +
                 "\n2) Уволить сотрудника" +
                 "\n3) Поменять менеджера" +
-                "\n4) Посмотреть информацию о складе" +
-                "\n5) Закупить товар" +
-                "\n6) Вернуться назад");
+                "\n4) Посмотреть информацию о ПВЗ" +
+                "\n5) Вернуться назад");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
         switch (choice) {
             case 1:
-                HireEmployee.hireEmployee(warehouseId, "loader");
+                HireEmployee.hireEmployee(warehouseId);
                 break;
             case 2:
                 FireEmployee.fireEmployee(warehouseId);
