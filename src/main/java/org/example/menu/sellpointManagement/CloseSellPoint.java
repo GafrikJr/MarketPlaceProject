@@ -1,10 +1,7 @@
 package org.example.menu.sellpointManagement;
 
-import org.example.menu.stockManagement.StockMenu;
 import org.example.methods.otherMethods.ClearConsole;
 import org.example.methods.warehousesMethods.SellPointMethods;
-import org.example.methods.warehousesMethods.StockMethods;
-
 import java.util.Scanner;
 
 public class CloseSellPoint {
@@ -17,6 +14,8 @@ public class CloseSellPoint {
             int warehouseId = scanner.nextInt();
             SellPointMethods.closeSellPointById(warehouseId);
         }
+
+        ClearConsole.clearConsole();
         System.out.println("Если хотите закрыть еще ПВЗ - нажмите 1" +
                 "\nЕсли хотите вернуться назад - нажмите 2");
         int choice = scanner.nextInt();

@@ -1,12 +1,7 @@
 package org.example.methods.userMethods;
 
 import org.example.methods.otherMethods.HibernateMethods;
-import org.example.methods.warehousesMethods.WarehouseMethods;
 import org.example.model.users.Employee;
-import org.example.model.warehouses.SellPoint;
-import org.example.model.warehouses.Stock;
-import org.example.model.warehouses.Warehouse;
-
 import java.util.List;
 
 public class EmployeeMethods {
@@ -14,6 +9,8 @@ public class EmployeeMethods {
         HibernateMethods.createEntry(employee, Employee.class);
     }
 
+
+    // тут создаем рабочих и сразу добавляем записи в БД
     public static int hireStaff(int warehouseId, int staffSize, String post) {
         Employee manager = new Employee(warehouseId, "manager");
         hireEmployee(manager);
@@ -41,6 +38,7 @@ public class EmployeeMethods {
         return HibernateMethods.getObjectById(employeeId, Employee.class);
     }
 
+    // по законодателству нельзя удалять информацию о рабочих, поэтому ставим им по 0 в двух столбцах
     private static void fireEmployee(Employee employee) {
         employee.setPlaceOfWorkId(0);
         employee.setWorking(false);

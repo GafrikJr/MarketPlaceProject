@@ -5,7 +5,6 @@ import org.example.menu.generalManagementMethods.ChangeManager;
 import org.example.menu.generalManagementMethods.FireEmployee;
 import org.example.menu.generalManagementMethods.HireEmployee;
 import org.example.menu.generalManagementMethods.WatchInfo;
-import org.example.menu.stockManagement.theStockManaging.*;
 import org.example.methods.otherMethods.ClearConsole;
 
 import java.util.Scanner;

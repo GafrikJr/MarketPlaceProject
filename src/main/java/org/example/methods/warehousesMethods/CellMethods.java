@@ -4,10 +4,8 @@ import org.example.methods.ordersMethods.ProductMethods;
 import org.example.methods.otherMethods.HibernateMethods;
 import org.example.model.warehouses.Cell;
 import org.example.model.orders.Product;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class CellMethods {
     public static void createCell(Cell cell) {
@@ -30,6 +28,7 @@ public class CellMethods {
 
     public static void putProduct(int cellId, int productId, int productCount) {
         Cell cell = getCellById(cellId);
+        // обновляем запись ячейки в БД, изменяя столбцы id продукта и кол-во продукта
         HibernateMethods.updateEntity(cellId,
                 Cell.class,
                 _cell -> putContent(_cell, productId, productCount)
@@ -68,6 +67,7 @@ public class CellMethods {
         return closedCells;
     }
 
+    // этот метод нужен для функц. интерфейса Consumer
     private static void putContent(Cell cell, int productId, int productCount) {
         Product product = ProductMethods.getProductById(productId);
         cell.setProductId(productId);

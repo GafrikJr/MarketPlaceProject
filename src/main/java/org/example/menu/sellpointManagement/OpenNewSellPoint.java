@@ -1,11 +1,8 @@
 package org.example.menu.sellpointManagement;
 
-import org.example.menu.stockManagement.StockMenu;
 import org.example.methods.otherMethods.ClearConsole;
 import org.example.methods.warehousesMethods.SellPointMethods;
-import org.example.methods.warehousesMethods.StockMethods;
 import org.example.model.warehouses.Warehouse;
-
 import java.util.Scanner;
 
 public class OpenNewSellPoint {
@@ -17,8 +14,9 @@ public class OpenNewSellPoint {
         System.out.println("Введите вместимость склада: ");
         int capacity = scanner.nextInt();
         Warehouse warehouse = new Warehouse(salaryBudget, capacity);
-        SellPointMethods.openSellPoint(warehouse); // создали запись сток и warehouse
+        SellPointMethods.openSellPoint(warehouse); // создали запись ПВЗ и warehouse
 
+        ClearConsole.clearConsole();
         System.out.println("Если хотите открыть еще ПВЗ - нажмите 1" +
                 "\nЕсли хотите вернуться назад - нажмите 2");
         int choice = scanner.nextInt();

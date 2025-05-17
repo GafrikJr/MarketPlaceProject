@@ -28,6 +28,7 @@ public class BuyProduct {
                 isPuted = true;
             }
         }
+
         System.out.println("\nЕсли хотите закупить еще товара - нажмите 1" +
                 "\nЕсли хотите вернуться назад - нажмите 2");
         int choice = scanner.nextInt();

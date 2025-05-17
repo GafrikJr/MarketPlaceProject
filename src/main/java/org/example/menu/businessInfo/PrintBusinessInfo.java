@@ -1,13 +1,11 @@
 package org.example.menu.businessInfo;
 
 import org.example.menu.Menu;
-import org.example.menu.sellpointManagement.sellpointManaging.SellPointManagement;
 import org.example.methods.otherMethods.ClearConsole;
 import org.example.methods.warehousesMethods.SellPointMethods;
 import org.example.methods.warehousesMethods.StockMethods;
 import org.example.model.warehouses.SellPoint;
 import org.example.model.warehouses.Stock;
-
 import java.util.List;
 import java.util.Scanner;
 

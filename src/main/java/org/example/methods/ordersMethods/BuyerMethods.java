@@ -1,13 +1,12 @@
 package org.example.methods.ordersMethods;
 
 import org.example.model.users.Buyer;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class BuyerMethods {
-    private static final File BUYER_TXT = new File("C://Users/Тимур/Documents/GitHub/MarketPlaceProject/Buyers.txt");
+    private static final File BUYER_TXT = new File("C://Users/Тимур/Documents/GitHub/MarketPlaceProject/files/Buyers.txt");
 
     public static Buyer getBuyerById(int id) {
         Buyer buyer = null;

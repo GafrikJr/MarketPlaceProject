@@ -5,10 +5,10 @@ import org.example.menu.stockManagement.theStockManaging.StockManagement;
 import org.example.methods.otherMethods.ClearConsole;
 import org.example.methods.userMethods.EmployeeMethods;
 import org.example.methods.warehousesMethods.WarehouseMethods;
-
 import java.util.Scanner;
 
 public class FireEmployee {
+
     public static void fireEmployee(int warehouseId) {
         ClearConsole.clearConsole();
         Scanner scanner = new Scanner(System.in);
@@ -21,6 +21,7 @@ public class FireEmployee {
         }
         EmployeeMethods.fireEmployeeById(employeeId);
     }
+
     public static void stockContinue(int warehouseId) {
         Scanner scanner = new Scanner(System.in);
         ClearConsole.clearConsole();

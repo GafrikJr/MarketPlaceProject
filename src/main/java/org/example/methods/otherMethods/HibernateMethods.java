@@ -3,7 +3,6 @@ package org.example.methods.otherMethods;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
 import java.util.List;
 import java.util.function.Consumer;
 

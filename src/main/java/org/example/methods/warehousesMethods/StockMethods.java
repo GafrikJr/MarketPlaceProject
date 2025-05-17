@@ -2,7 +2,6 @@ package org.example.methods.warehousesMethods;
 
 import org.example.methods.otherMethods.HibernateMethods;
 import org.example.methods.userMethods.EmployeeMethods;
-import org.example.model.users.Employee;
 import org.example.model.warehouses.Cell;
 import org.example.model.warehouses.Stock;
 import org.example.model.warehouses.Warehouse;
@@ -11,10 +10,6 @@ import java.util.List;
 import java.util.Random;
 
 public class StockMethods {
-
-    public static Stock getStockByWarehouseId(int warehouseId) {
-        return HibernateMethods.getObjectById(warehouseId, Stock.class);
-    }
 
     public static List<Stock> getAllStocks() {
         String request = "FROM Stock";
@@ -83,12 +78,4 @@ public class StockMethods {
         return stocks.get(randomIndex).getStockId();
     }
 
-    private static List<Cell> openCells(int warehouse_id, int capacity) {
-        List<Cell> cells = new ArrayList<>();
-        for (int i = 0; i < capacity; i++) {
-            Cell cell = new Cell(warehouse_id);
-            cells.add(cell);
-        }
-        return cells;
-    }
 }

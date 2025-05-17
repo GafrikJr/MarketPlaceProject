@@ -1,5 +1,7 @@
 package org.example.model.orders;
 
+import org.example.methods.ordersMethods.BuyerMethods;
+import org.example.methods.ordersMethods.OrderListMethods;
 import org.example.methods.ordersMethods.ProductMethods;
 
 public class Order {
@@ -73,6 +75,7 @@ public class Order {
                 + " | Товар: " + ProductMethods.getProductById(productId).getName()
                 + " | Кол-во: " + productCount
                 + " | Стоимость заказа: " + cost
+                + " | Заказчик: " + BuyerMethods.getBuyerById(OrderListMethods.getOrderListById(orderListId).getBuyerId()).getFullName()
         );
     }
 }

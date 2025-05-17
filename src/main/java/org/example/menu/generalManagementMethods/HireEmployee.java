@@ -5,7 +5,6 @@ import org.example.menu.stockManagement.theStockManaging.StockManagement;
 import org.example.methods.otherMethods.ClearConsole;
 import org.example.methods.userMethods.EmployeeMethods;
 import org.example.model.users.Employee;
-
 import java.util.Scanner;
 
 public class HireEmployee {

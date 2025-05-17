@@ -2,15 +2,12 @@ package org.example.methods.ordersMethods;
 
 import org.example.methods.otherMethods.HibernateMethods;
 import org.example.methods.warehousesMethods.CellMethods;
-import org.example.methods.warehousesMethods.SellPointMethods;
 import org.example.methods.warehousesMethods.StockMethods;
-import org.example.methods.warehousesMethods.WarehouseMethods;
 import org.example.model.orders.Order;
 import org.example.model.orders.OrderList;
 import org.example.model.users.Buyer;
 import org.example.model.warehouses.Cell;
 import org.example.model.warehouses.SellPoint;
-
 import java.util.List;
 import java.util.Random;
 
@@ -39,9 +36,11 @@ public class RandomOrder {
                                 sellPointCell.getId(),
                                 stockCell.getProfit()
                         );
+                        //убираем продукт из склада
                         HibernateMethods.updateEntity(stockCell.getId(), Cell.class, cell -> cell.setProductId(0));
                         HibernateMethods.updateEntity(stockCell.getId(), Cell.class, cell -> cell.setProductCount(0));
                         HibernateMethods.updateEntity(stockCell.getId(), Cell.class, cell -> cell.setProfit(0));
+
                         OrderMethods.makeEntry(order);
                         orderList.setTotalCost(orderList.getTotalCost() + order.getCost());
                         orderSize--;

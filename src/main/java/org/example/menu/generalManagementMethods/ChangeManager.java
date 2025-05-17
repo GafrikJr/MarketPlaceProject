@@ -10,7 +10,6 @@ import org.example.model.users.Employee;
 import org.example.model.warehouses.SellPoint;
 import org.example.model.warehouses.Stock;
 import org.example.model.warehouses.Warehouse;
-
 import java.util.Scanner;
 
 public class ChangeManager {

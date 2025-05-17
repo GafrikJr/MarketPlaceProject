@@ -2,12 +2,7 @@ package org.example.menu.sellpointManagement;
 
 import org.example.menu.Menu;
 import org.example.menu.sellpointManagement.sellpointManaging.ChooseSellPoint;
-import org.example.menu.sellpointManagement.sellpointManaging.SellPointManagement;
-import org.example.menu.stockManagement.CloseStock;
-import org.example.menu.stockManagement.OpenNewStock;
-import org.example.menu.stockManagement.theStockManaging.ChooseStock;
 import org.example.methods.otherMethods.ClearConsole;
-
 import java.util.Scanner;
 
 public class SellPointMenu {

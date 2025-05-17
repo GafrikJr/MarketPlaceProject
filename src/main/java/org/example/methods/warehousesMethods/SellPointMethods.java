@@ -1,12 +1,9 @@
 package org.example.methods.warehousesMethods;
 
 import org.example.methods.otherMethods.HibernateMethods;
-import org.example.methods.otherMethods.RandomHuman;
 import org.example.methods.userMethods.EmployeeMethods;
-import org.example.model.users.Employee;
 import org.example.model.warehouses.Cell;
 import org.example.model.warehouses.SellPoint;
-import org.example.model.warehouses.Stock;
 import org.example.model.warehouses.Warehouse;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,8 +50,8 @@ public class SellPointMethods {
                 warehouse.getCapacity()
         );
         HibernateMethods.createEntry(sellPoint, SellPoint.class); // создали запись ПВЗ в БД
-        int managerId = EmployeeMethods.hireStaff(warehouse.getId(), 3, "seller");
-        CellMethods.createCells(warehouse.getId(), warehouse.getCapacity());
+        int managerId = EmployeeMethods.hireStaff(warehouse.getId(), 3, "seller"); // создали записи рабочих в БД
+        CellMethods.createCells(warehouse.getId(), warehouse.getCapacity()); // создали записи ячеек в БД
 
         HibernateMethods.updateEntity(  // устанавливаем хранилищу managerId нанятого менеджера
                 warehouse.getId(),
@@ -62,21 +59,10 @@ public class SellPointMethods {
                 _warehouse -> _warehouse.setManagerId(managerId)
         );
 
-        HibernateMethods.updateEntity(
+        HibernateMethods.updateEntity( // устанавливаем sellPoint'у нанятого менеджера
                 sellPoint.getId(),
                 SellPoint.class,
                 _sellPoint -> _sellPoint.setManagerId(managerId)
         );
-
-
-    }
-
-    private static List<Cell> openCells(int warehouse_id, int capacity) {
-        List<Cell> cells = new ArrayList<>();
-        for (int i = 0; i < capacity; i++) {
-            Cell cell = new Cell(warehouse_id);
-            cells.add(cell);
-        }
-        return cells;
     }
 }

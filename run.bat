@@ -1,13 +1,7 @@
 @echo off
-echo Запуск Maven проекта с Hibernate...
+set "PROJECT_DIR=C:\Users\Тимур\Documents\GitHub\MarketPlaceProject"
+cd /d "%PROJECT_DIR%"
 
-REM Перейти в папку проекта (замени путь на свой)
-cd /d "C:\Users\Тимур\Documents\GitHub\MarketPlaceProject"
-
-REM Очистить и собрать проект
-mvn clean install
-
-REM Запустить main-класс
-mvn exec:java -Dexec.mainClass="com.example.Main"
+mvn compile exec:java
 
 pause

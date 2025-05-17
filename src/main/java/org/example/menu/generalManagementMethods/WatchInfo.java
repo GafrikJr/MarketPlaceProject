@@ -4,9 +4,7 @@ import org.example.menu.sellpointManagement.sellpointManaging.SellPointManagemen
 import org.example.menu.stockManagement.theStockManaging.StockManagement;
 import org.example.methods.otherMethods.ClearConsole;
 import org.example.methods.warehousesMethods.SellPointMethods;
-import org.example.methods.warehousesMethods.StockMethods;
 import org.example.methods.warehousesMethods.WarehouseMethods;
-
 import java.util.Scanner;
 
 public class WatchInfo {

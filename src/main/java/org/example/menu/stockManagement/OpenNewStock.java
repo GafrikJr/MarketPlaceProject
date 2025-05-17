@@ -1,10 +1,8 @@
 package org.example.menu.stockManagement;
 
-import org.example.menu.stockManagement.theStockManaging.StockManagement;
 import org.example.methods.otherMethods.ClearConsole;
 import org.example.methods.warehousesMethods.StockMethods;
 import org.example.model.warehouses.Warehouse;
-
 import java.util.Scanner;
 
 public class OpenNewStock {
@@ -18,6 +16,7 @@ public class OpenNewStock {
         Warehouse warehouse = new Warehouse(salaryBudget, capacity);
         StockMethods.openStock(warehouse); // создали запись сток и warehouse
 
+        ClearConsole.clearConsole();
         System.out.println("Если хотите открыть еще склад - нажмите 1" +
                 "\nЕсли хотите вернуться назад - нажмите 2");
         int choice = scanner.nextInt();

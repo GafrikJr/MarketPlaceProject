@@ -3,11 +3,7 @@ package org.example.menu.sellpointManagement.sellpointManaging;
 import org.example.methods.ordersMethods.OrderMethods;
 import org.example.methods.ordersMethods.RandomOrder;
 import org.example.methods.otherMethods.ClearConsole;
-import org.example.methods.warehousesMethods.WarehouseMethods;
 import org.example.model.orders.Order;
-import org.example.model.warehouses.Cell;
-import org.example.model.warehouses.Warehouse;
-
 import java.util.List;
 import java.util.Scanner;
 

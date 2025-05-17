@@ -1,7 +1,6 @@
 package org.example.methods.ordersMethods;
 
 import org.example.model.orders.Product;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -9,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ProductMethods {
-    private static final File PRODUCT_TXT = new File("C://Users/Тимур/Documents/GitHub/MarketPlaceProject/Products.txt");
+    private static final File PRODUCT_TXT = new File("C://Users/Тимур/Documents/GitHub/MarketPlaceProject/files/Products.txt");
 
     public static Product getProductById(int _id) {
         Product product = null;
@@ -20,7 +19,12 @@ public class ProductMethods {
             while (scanner.hasNextLine()) {
                 columns = scanner.nextLine().split("  ");
                 if (Integer.parseInt(columns[0]) == _id) {
-                    product = new Product(Integer.parseInt(columns[0]), columns[1], Integer.parseInt(columns[2]), Integer.parseInt(columns[3]));
+                    product = new Product(
+                            Integer.parseInt(columns[0]),
+                            columns[1],
+                            Integer.parseInt(columns[2]),
+                            Integer.parseInt(columns[3])
+                    );
                 }
             }
         }
@@ -37,7 +41,12 @@ public class ProductMethods {
             while (scanner.hasNextLine()) {
                 String[] columns = new String[4];
                 columns = scanner.nextLine().split("  ");
-                Product product = new Product(Integer.parseInt(columns[0]), columns[1], Integer.parseInt(columns[2]), Integer.parseInt(columns[3]));
+                Product product = new Product(
+                        Integer.parseInt(columns[0]),
+                        columns[1],
+                        Integer.parseInt(columns[2]),
+                        Integer.parseInt(columns[3])
+                );
                 allProducts.add(product);
             }
         }

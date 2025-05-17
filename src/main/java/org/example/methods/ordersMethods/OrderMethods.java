@@ -2,9 +2,7 @@ package org.example.methods.ordersMethods;
 
 import org.example.methods.warehousesMethods.WarehouseMethods;
 import org.example.model.orders.Order;
-import org.example.model.orders.Product;
 import org.example.model.warehouses.Cell;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -14,7 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class OrderMethods {
-    private static final File ORDER_TXT = new File("C://Users/Тимур/Documents/GitHub/MarketPlaceProject/Orders.txt");
+    private static final File ORDER_TXT = new File("C://Users/Тимур/Documents/GitHub/MarketPlaceProject/files/Orders.txt");
 
     public static Order getOrderById(int id) {
         Order order = null;
@@ -25,7 +23,14 @@ public class OrderMethods {
             while (scanner.hasNextLine()) {
                 columns = scanner.nextLine().split("  ");
                 if (Integer.parseInt(columns[0]) == id) {
-                    order = new Order(Integer.parseInt(columns[0]), Integer.parseInt(columns[1]), Integer.parseInt(columns[2]), Integer.parseInt(columns[3]), Integer.parseInt(columns[4]), Integer.parseInt(columns[5]));
+                    order = new Order(
+                            Integer.parseInt(columns[0]),
+                            Integer.parseInt(columns[1]),
+                            Integer.parseInt(columns[2]),
+                            Integer.parseInt(columns[3]),
+                            Integer.parseInt(columns[4]),
+                            Integer.parseInt(columns[5])
+                    );
                 }
             }
         }
