@@ -28,6 +28,30 @@ public class Stock {
         this.capacity = capacity;
     }
 
+    public int getWarehouseId() {
+        return warehouseId;
+    }
+
+    public void setWarehouseId(int warehouseId) {
+        this.warehouseId = warehouseId;
+    }
+
+    public int getManagerId() {
+        return managerId;
+    }
+
+    public int getSalaryBudget() {
+        return salaryBudget;
+    }
+
+    public void setSalaryBudget(int salaryBudget) {
+        this.salaryBudget = salaryBudget;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
     public int getCapacity() {
         return capacity;
     }

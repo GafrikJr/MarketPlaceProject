@@ -12,6 +12,6 @@ public class App {
     public static void main(String[] args) {
         HideLoggs.hideLoggs();
         Menu.mainMenu();
-//        RandomOrder.makeOrderList(38, 44);
+//        RandomOrder.makeOrderList(45, 46);
     }
 }

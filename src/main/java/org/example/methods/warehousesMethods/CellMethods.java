@@ -36,15 +36,26 @@ public class CellMethods {
         );
     }
 
-    public static Cell getRandomVoidCell(int warehouseId) {
-        Random random = new Random();
-        Cell voidCell = null;
-        List<Cell> cells = WarehouseMethods.getWarehouseCells(warehouseId);
-        int randomIndex = random.nextInt(cells.size());
-        while (cells.get(randomIndex).getProductId() != 0) {
-            randomIndex = random.nextInt(cells.size());
+    public static List<Cell> getVoidCells(int warehouseId) {
+        List<Cell> voidCells = new ArrayList<>();
+        List<Cell> allCells = WarehouseMethods.getWarehouseCells(warehouseId);
+        for (Cell cell : allCells) {
+            if (cell.getProductId() == 0) {
+                voidCells.add(cell);
+            }
         }
-        return cells.get(randomIndex);
+        return voidCells;
+    }
+
+    public static List<Cell> getNotVoidCells(int warehouseId) {
+        List<Cell> notVoidCells = new ArrayList<>();
+        List<Cell> allCells = WarehouseMethods.getWarehouseCells(warehouseId);
+        for (Cell cell : allCells) {
+            if (cell.getProductId() != 0) {
+                notVoidCells.add(cell);
+            }
+        }
+        return notVoidCells;
     }
 
     public static Cell getCellById(int cellId) {

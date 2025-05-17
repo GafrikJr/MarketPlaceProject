@@ -1,5 +1,6 @@
 package org.example.menu;
 
+import org.example.menu.businessInfo.PrintBusinessInfo;
 import org.example.menu.sellpointManagement.SellPointMenu;
 import org.example.menu.stockManagement.CloseStock;
 import org.example.menu.stockManagement.OpenNewStock;
@@ -26,7 +27,7 @@ public class Menu {
                 SellPointMenu.menu();
                 break;
             case 3:
-
+                PrintBusinessInfo.printBusinessInfo();
                 break;
         }
     }

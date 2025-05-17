@@ -8,6 +8,7 @@ import org.example.model.warehouses.Stock;
 import org.example.model.warehouses.Warehouse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class StockMethods {
 
@@ -73,6 +74,13 @@ public class StockMethods {
         CellMethods.closeCells(warehouse_id);
         HibernateMethods.deleteObjectById(warehouse_id, Stock.class);
         WarehouseMethods.deleteWarehouseById(warehouse_id, Warehouse.class);
+    }
+
+    public static int getRandomStockId() {
+        List<Stock> stocks = getAllStocks();
+        Random random = new Random();
+        int randomIndex = random.nextInt(stocks.size());
+        return stocks.get(randomIndex).getStockId();
     }
 
     private static List<Cell> openCells(int warehouse_id, int capacity) {
